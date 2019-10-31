@@ -1,0 +1,363 @@
+starting build
+
+**********************************************************************
+
+Test build
+build project using make
+
+**********************************************************************
+Trying to clean project using make clean
+make clean
+make: *** No rule to make target 'clean'.  Stop.
+Trying to build project using make
+make
+make: *** No targets specified and no makefile found.  Stop.
+gcc xcheck.c -o xcheck
+
+
+test build PASSED
+ (build project using make)
+
+starting Good
+
+**********************************************************************
+
+Test Good
+run on a good filesystem
+
+**********************************************************************
+/tmp/tmpaIQ8UF/p/./xcheck /u/c/s/cs537-1/tests/p5/images/Good
+Failure: ./xcheck returned incorrect status code. Expected 0 got 1
+
+
+test Good FAILED (0 of 5)
+ (run on a good filesystem)
+ ./xcheck returned incorrect status code. Expected 0 got 1
+
+starting Goodrefcnt
+
+**********************************************************************
+
+Test Goodrefcnt
+run on fs with only good reference counts
+
+**********************************************************************
+/tmp/tmpaIQ8UF/p/./xcheck /u/c/s/cs537-1/tests/p5/images/Goodrefcnt
+
+
+test Goodrefcnt PASSED (2 of 2)
+ (run on fs with only good reference counts)
+
+starting Nonexistant
+
+**********************************************************************
+
+Test Nonexistant
+run on a nonexistant filesystem
+
+**********************************************************************
+/tmp/tmpaIQ8UF/p/./xcheck /u/c/s/cs537-1/tests/p5/images/Nonexistant
+
+
+test Nonexistant PASSED (2 of 2)
+ (run on a nonexistant filesystem)
+
+starting Badroot
+
+**********************************************************************
+
+Test Badroot
+run on a filesystem with a root directory in bad location
+
+**********************************************************************
+/tmp/tmpaIQ8UF/p/./xcheck /u/c/s/cs537-1/tests/p5/images/Badroot
+
+
+test Badroot PASSED (5 of 5)
+ (run on a filesystem with a root directory in bad location)
+
+starting Badinode
+
+**********************************************************************
+
+Test Badinode
+run on a filesystem with a bad type in an inode
+
+**********************************************************************
+/tmp/tmpaIQ8UF/p/./xcheck /u/c/s/cs537-1/tests/p5/images/Badinode
+
+
+test Badinode PASSED (5 of 5)
+ (run on a filesystem with a bad type in an inode)
+
+starting Badaddr
+
+**********************************************************************
+
+Test Badaddr
+run on a filesystem with a bad direct address in an inode
+
+**********************************************************************
+/tmp/tmpaIQ8UF/p/./xcheck /u/c/s/cs537-1/tests/p5/images/Badaddr
+Failure: ./xcheck gave incorrect standard error.
+Expected: "ERROR: bad direct address in inode.\n"
+Got:      "ERROR: bad address in inode.\n"
+
+
+test Badaddr FAILED (0 of 5)
+ (run on a filesystem with a bad direct address in an inode)
+ ./xcheck gave incorrect standard error.
+
+starting Badindir1
+
+**********************************************************************
+
+Test Badindir1
+run on a filesystem with a bad indirect address in an inode
+
+**********************************************************************
+/tmp/tmpaIQ8UF/p/./xcheck /u/c/s/cs537-1/tests/p5/images/Badindir1
+Failure: ./xcheck gave incorrect standard error.
+Expected: "ERROR: bad indirect address in inode.\n"
+Got:      "ERROR: bad address in inode.\n"
+
+
+test Badindir1 FAILED (0 of 5)
+ (run on a filesystem with a bad indirect address in an inode)
+ ./xcheck gave incorrect standard error.
+
+starting Badroot2
+
+**********************************************************************
+
+Test Badroot2
+run on a filesystem with a bad root directory in good location
+
+**********************************************************************
+/tmp/tmpaIQ8UF/p/./xcheck /u/c/s/cs537-1/tests/p5/images/Badroot2
+
+
+test Badroot2 PASSED (5 of 5)
+ (run on a filesystem with a bad root directory in good location)
+
+starting Badfmt
+
+**********************************************************************
+
+Test Badfmt
+run on a filesystem without . or .. directories
+
+**********************************************************************
+/tmp/tmpaIQ8UF/p/./xcheck /u/c/s/cs537-1/tests/p5/images/Badfmt
+
+
+test Badfmt PASSED (5 of 5)
+ (run on a filesystem without . or .. directories)
+
+starting Mrkfree
+
+**********************************************************************
+
+Test Mrkfree
+run on a filesystem with an inuse direct block marked free
+
+**********************************************************************
+/tmp/tmpaIQ8UF/p/./xcheck /u/c/s/cs537-1/tests/p5/images/Mrkfree
+
+
+test Mrkfree PASSED (5 of 5)
+ (run on a filesystem with an inuse direct block marked free)
+
+starting Mrkused
+
+**********************************************************************
+
+Test Mrkused
+run on a filesystem with a free block marked used
+
+**********************************************************************
+/tmp/tmpaIQ8UF/p/./xcheck /u/c/s/cs537-1/tests/p5/images/Mrkused
+
+
+test Mrkused PASSED (5 of 5)
+ (run on a filesystem with a free block marked used)
+
+starting Addronce
+
+**********************************************************************
+
+Test Addronce
+run on a filesystem with an address used more than once
+
+**********************************************************************
+/tmp/tmpaIQ8UF/p/./xcheck /u/c/s/cs537-1/tests/p5/images/Addronce
+Failure: ./xcheck gave incorrect standard error.
+Expected: "ERROR: direct address used more than once.\n"
+Got:      "ERROR: address used more than once.\n"
+
+
+test Addronce FAILED (0 of 5)
+ (run on a filesystem with an address used more than once)
+ ./xcheck gave incorrect standard error.
+
+starting Imrkused
+
+**********************************************************************
+
+Test Imrkused
+run with inode marked used, but not referenced in a directory
+
+**********************************************************************
+/tmp/tmpaIQ8UF/p/./xcheck /u/c/s/cs537-1/tests/p5/images/Imrkused
+Failure: ./xcheck gave incorrect standard error.
+Expected: "ERROR: inode marked use but not found in a directory.\n"
+Got:      "ERROR: inode referred to in directory but marked free.\n"
+
+
+test Imrkused FAILED (0 of 5)
+ (run with inode marked used, but not referenced in a directory)
+ ./xcheck gave incorrect standard error.
+
+starting Imrkfree
+
+**********************************************************************
+
+Test Imrkfree
+run with inode marked free, but referenced in a directory
+
+**********************************************************************
+/tmp/tmpaIQ8UF/p/./xcheck /u/c/s/cs537-1/tests/p5/images/Imrkfree
+
+
+test Imrkfree PASSED (5 of 5)
+ (run with inode marked free, but referenced in a directory)
+
+starting Badrefcnt
+
+**********************************************************************
+
+Test Badrefcnt
+run on fs which has an inode with a bad reference count
+
+**********************************************************************
+/tmp/tmpaIQ8UF/p/./xcheck /u/c/s/cs537-1/tests/p5/images/Badrefcnt
+
+
+test Badrefcnt PASSED (5 of 5)
+ (run on fs which has an inode with a bad reference count)
+
+starting Dironce
+
+**********************************************************************
+
+Test Dironce
+run on fs with a directory appearing more than once
+
+**********************************************************************
+/tmp/tmpaIQ8UF/p/./xcheck /u/c/s/cs537-1/tests/p5/images/Dironce
+
+
+test Dironce PASSED (5 of 5)
+ (run on fs with a directory appearing more than once)
+
+starting Goodrm
+
+**********************************************************************
+
+Test Goodrm
+run on good fs with a file removed and a new directory created
+
+**********************************************************************
+/tmp/tmpaIQ8UF/p/./xcheck /u/c/s/cs537-1/tests/p5/images/Goodrm
+Failure: ./xcheck returned incorrect status code. Expected 0 got 1
+
+
+test Goodrm FAILED (0 of 5)
+ (run on good fs with a file removed and a new directory created)
+ ./xcheck returned incorrect status code. Expected 0 got 1
+
+starting Goodlink
+
+**********************************************************************
+
+Test Goodlink
+run on good fs with some hard links and a linked file removed
+
+**********************************************************************
+/tmp/tmpaIQ8UF/p/./xcheck /u/c/s/cs537-1/tests/p5/images/Goodlink
+Failure: ./xcheck returned incorrect status code. Expected 0 got 1
+
+
+test Goodlink FAILED (0 of 3)
+ (run on good fs with some hard links and a linked file removed)
+ ./xcheck returned incorrect status code. Expected 0 got 1
+
+**********************************************************************
+Summary:
+test build PASSED
+ (build project using make)
+
+test Good FAILED (0 of 5)
+ (run on a good filesystem)
+ ./xcheck returned incorrect status code. Expected 0 got 1
+
+test Goodrefcnt PASSED (2 of 2)
+ (run on fs with only good reference counts)
+
+test Nonexistant PASSED (2 of 2)
+ (run on a nonexistant filesystem)
+
+test Badroot PASSED (5 of 5)
+ (run on a filesystem with a root directory in bad location)
+
+test Badinode PASSED (5 of 5)
+ (run on a filesystem with a bad type in an inode)
+
+test Badaddr FAILED (0 of 5)
+ (run on a filesystem with a bad direct address in an inode)
+ ./xcheck gave incorrect standard error.
+
+test Badindir1 FAILED (0 of 5)
+ (run on a filesystem with a bad indirect address in an inode)
+ ./xcheck gave incorrect standard error.
+
+test Badroot2 PASSED (5 of 5)
+ (run on a filesystem with a bad root directory in good location)
+
+test Badfmt PASSED (5 of 5)
+ (run on a filesystem without . or .. directories)
+
+test Mrkfree PASSED (5 of 5)
+ (run on a filesystem with an inuse direct block marked free)
+
+test Mrkused PASSED (5 of 5)
+ (run on a filesystem with a free block marked used)
+
+test Addronce FAILED (0 of 5)
+ (run on a filesystem with an address used more than once)
+ ./xcheck gave incorrect standard error.
+
+test Imrkused FAILED (0 of 5)
+ (run with inode marked used, but not referenced in a directory)
+ ./xcheck gave incorrect standard error.
+
+test Imrkfree PASSED (5 of 5)
+ (run with inode marked free, but referenced in a directory)
+
+test Badrefcnt PASSED (5 of 5)
+ (run on fs which has an inode with a bad reference count)
+
+test Dironce PASSED (5 of 5)
+ (run on fs with a directory appearing more than once)
+
+test Goodrm FAILED (0 of 5)
+ (run on good fs with a file removed and a new directory created)
+ ./xcheck returned incorrect status code. Expected 0 got 1
+
+test Goodlink FAILED (0 of 3)
+ (run on good fs with some hard links and a linked file removed)
+ ./xcheck returned incorrect status code. Expected 0 got 1
+
+Passed 12 of 19 tests.
+Overall 12 of 19
+Points 49 of 82
